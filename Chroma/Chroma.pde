@@ -8,7 +8,7 @@ void setup() {
 }
 
 void draw() {
-  if (statButtonUse == 0) {
+  if (statButtonUse == 1) {
     if (serial.available() > 0) {
       StringBuilder builder = new StringBuilder();
       while (!builder.toString().endsWith("\n")) {
@@ -57,14 +57,15 @@ void mouseClicked() {
 }
 
 void mouseWheel(MouseEvent event) {
-  if ()
-    float e = event.getCount();
+  if (statButtonUse == 0){
+    float e = event.getCount()*10;
   if (stateButtonR == 1 && dataR+e <= 1023 && dataR-e >=0)
     dataR += e;
   if (stateButtonG == 1 && dataG+e <= 1023 && dataG-e >=0)
     dataG += e;
   if (stateButtonB == 1 && dataB+e <= 1023 && dataB-e >=0)
     dataB += e;
+  }
 }
 
 /*
